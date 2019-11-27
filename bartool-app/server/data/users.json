@@ -1,0 +1,67 @@
+[
+    {"name": "Luca",
+    "id": "123",
+    "savedDrinks": [
+        { "name": "Sbagliatto",
+    "glass": "rocks",
+    "category": "Before Dinner Cocktail",
+    "ingredients": [
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Prosecco" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Campari" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Sweet Vermouth" }
+    ],
+    "garnish": "Grapefruit twist",
+    "preparation": "Stir and pour into a rocks glass on ice." }
+    ]
+  },
+
+  {"name": "Ryan",
+    "id": "456",
+    "savedDrinks": [
+        { "name": "Sbagliatto",
+    "glass": "rocks",
+    "category": "Before Dinner Cocktail",
+    "ingredients": [
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Prosecco" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Campari" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Sweet Vermouth" }
+    ],
+    "garnish": "Grapefruit twist",
+    "preparation": "Stir and pour into a rocks glass on ice." }
+    ]
+  },
+
+  {"name": "Karolina",
+    "id": "789",
+    "savedDrinks": [
+        { "name": "Sbagliatto",
+    "glass": "rocks",
+    "category": "Before Dinner Cocktail",
+    "ingredients": [
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Prosecco" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Campari" },
+    { "unit": "cl",
+        "amount": 1,
+        "ingredient": "Sweet Vermouth" }
+    ],
+    "garnish": "Grapefruit twist",
+    "preparation": "Stir and pour into a rocks glass on ice." }
+    ]
+  }
+]

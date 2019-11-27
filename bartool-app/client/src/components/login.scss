@@ -1,0 +1,12 @@
+@import'../styles/base.scss';
+
+.login{
+
+    &__form{
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+}
