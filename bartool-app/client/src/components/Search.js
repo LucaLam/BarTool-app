@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import Result from './Result';
 import axios from "axios";
+
 
 export class Search extends Component {
 state = {
-    drink: ""
+    drink: "",
+    ingredients: [[]],
+    preparation: '',
+    garnish: '',
+    isShowing: false
 };
 
 handleSubmit = event => {
@@ -14,16 +20,17 @@ handleSubmit = event => {
     } else {
     axios.get("http://localhost:8080/recipes").then(response => {
         let drink = response.data.find(drink => drink.name === this.state.drink)
-        console.log(drink)
         if(!drink){
             alert('Drink Not Found!')
         } else{
-            // this.setState({
-            //     drink: drink.name,
-            //     ingredients: [drink.ingredients],
-            //     preparation: drink.preparation,
-            //     garnish: drink.garnish
-            // })
+            this.setState({
+                drink: drink.name,
+                //Flat makes a nested array into one array
+                ingredients: drink.ingredients.flat(1),
+                preparation: drink.preparation,
+                garnish: drink.garnish,
+                isShowing: true
+            })
         }
     });
     }
@@ -35,8 +42,13 @@ handleChange = event => {
     });
 };
 
+closeSearch = event => {
+    this.setState({
+        isShowing: false
+    })
+}
+
 render() {
-    console.log('drink is', this.state)
     return (
     <div>
         <Header />
@@ -49,6 +61,8 @@ render() {
         ></input>
         <button>Drink!</button>
         </form>
+        {
+        this.state.isShowing ? <Result recipe={this.state} closeSearch={this.closeSearch} /> : null }
     </div>
     );
 }
