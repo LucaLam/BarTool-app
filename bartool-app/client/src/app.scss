@@ -1,16 +1,19 @@
 @import'./styles/base.scss';
 
-// .app{
-// background: linear-gradient(170deg, #FFEC62 50%, #CCFBFF 30%);
-// }
+.logo{
+    width: 30%;
+    height: 30%;
+    opacity: 80%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
 
-// .logo{
-//     border-radius: 100%;
-//     width: 80px;
-//     height: 80px;
-//     opacity: 80%;
-//     position: absolute;
-//     margin-top: 90px;
-//     margin-left: 20px;
-// }
+h1{
+    font-family: 'Economica', sans-serif;
+    color: #EB225A;
+    font-size: 80px;
+    //remove this and re-do it properly
+    margin-top: 16px;
+    margin-left: 70px;
 
+}

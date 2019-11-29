@@ -1,46 +1,59 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './login.scss';
+import React, { Component } from "react";
+// import {Link} from 'react-router-dom';
+import axios from "axios";
+import "./login.scss";
 
-export class LogIn extends Component {
+export class Login extends Component {
+state = {
+    id: "",
+    user: ""
+};
 
-    state={
-        id: ''
-    }
-
-handleSubmit = (event) => {
+handleSubmit = event => {
     event.preventDefault();
     if (!this.state.id || isNaN(this.state.id)) {
-        return alert('ID Required!');
-            } else{
-    console.log('onSubmit Working for axios call')
-    axios.get('http://localhost:8080/user')
-    .then((response) => {
-        console.log(response)
+    return alert("ID Required!");
+    } else {
+    axios.get("http://localhost:8080/user").then(response => {
+        console.log(response.data);
         //look thru data, compare existing IDs to entered ID and 'grant entry' or return an alert
-    })
-}
-}
-
-handleChange = (event) => {
-    console.log('onChange Working')
-    this.setState({
-        id: event.target.value
-    })
-}
-
-    render() {
-        console.log('The current user is:',this.state.id)
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit} className='login__form'>
-                    <label>Please Enter your Id:</label>
-                    <input type='text' name='username' value={this.state.id} onChange={this.handleChange}></input>
-                    <button type='submit'>Submit</button>
-                </form>
-            </div>
-        )
+        let user = response.data.find(user => user.id === this.state.id)
+        console.log(user);
+            if(!user){
+                alert('User Not Found!')
+            } else{
+                this.setState({
+                    user: user.name,
+                    id: ""
+                })
+            }
+    });
     }
+};
+
+handleChange = event => {
+    this.setState({
+    id: event.target.value
+    });
+};
+
+render() {
+    console.log("The current user is:", this.state.user);
+    return (
+    <div>
+        <form onSubmit={this.handleSubmit} className="login__form">
+        <label>Please Enter your Id:</label>
+        <input
+            type="text"
+            name="username"
+            value={this.state.id}
+            onChange={this.handleChange}
+        ></input>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+    );
+}
 }
 
-export default LogIn
+export default Login;

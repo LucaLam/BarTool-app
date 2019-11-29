@@ -1,9 +1,18 @@
+@import './font.scss';
+
 *, *::before, *::after{
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
 }
+html{
+    height: 100%;
+}
 
 body{
     background: linear-gradient(170deg, #FFEC62 50%, #CCFBFF 30%);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
