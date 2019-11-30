@@ -19,9 +19,9 @@
     "garnish": "Grapefruit twist",
     "preparation": "Stir and pour into a rocks glass on ice." }
     ]
-  },
+},
 
-  {"name": "Ryan",
+{"name": "Ryan",
     "id": "456",
     "savedDrinks": [
         { "name": "Sbagliatto",
@@ -41,9 +41,9 @@
     "garnish": "Grapefruit twist",
     "preparation": "Stir and pour into a rocks glass on ice." }
     ]
-  },
+},
 
-  {"name": "Karolina",
+{"name": "Karolina",
     "id": "789",
     "savedDrinks": [
         { "name": "Sbagliatto",

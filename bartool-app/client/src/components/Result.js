@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
+import StatRating from './StarRating'
 
 export class Result extends Component {
-    
+
+    convertToOunces=(num)=>{
+        let ounces = num / 3;
+        return ounces;
+    };
+
+    convertUnit = (value)=>{
+        if(value){
+            return 'oz';
+        }
+    };
     
     render() {
         let ingredient = this.props.recipe.ingredients.map(item => {
                 return(
                     <>
-                        <li>{item.amount} {item.unit} {item.ingredient}</li>
+                        <li>{this.convertToOunces(item.amount)} 
+                        {this.convertUnit(item.unit)} 
+                        {item.ingredient}</li>
                     </>
                     )
             })
@@ -19,7 +32,9 @@ export class Result extends Component {
                 {ingredient}
                 </ul>
                 <p>{this.props.recipe.preparation}</p>
-                <p>{this.props.recipe.garnish}</p>
+                <p>Garnish: {this.props.recipe.garnish}</p>
+                <StatRating />
+                <div onClick={this.addHandler}>+</div>
             </div>
             
         )

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-// import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import axios from "axios";
 import "./login.scss";
 
 export class Login extends Component {
 state = {
     id: "",
-    user: ""
+    user: "",
+    redirect: false
 };
 
 handleSubmit = event => {
@@ -24,12 +25,18 @@ handleSubmit = event => {
             } else{
                 this.setState({
                     user: user.name,
-                    id: ""
+                    id: "",
+                    redirect: true
                 })
             }
-    });
+    }).then(this.sendDataToParent)
+    
     }
 };
+sendDataToParent = () =>{
+    this.props.getUserFromChild(this.state.user)
+}
+
 
 handleChange = event => {
     this.setState({
@@ -37,19 +44,25 @@ handleChange = event => {
     });
 };
 
+
 render() {
     console.log("The current user is:", this.state.user);
+    const redirect = this.state.redirect
+    if(redirect){
+        return <Redirect to='/search' />
+    }
     return (
     <div>
         <form onSubmit={this.handleSubmit} className="login__form">
-        <label>Please Enter your Id:</label>
+        <label className='login__form-label'>Please Enter your Id:</label>
         <input
             type="text"
             name="username"
             value={this.state.id}
             onChange={this.handleChange}
+            className='login__form-field'
         ></input>
-        <button type="submit">Submit</button>
+        <button type="submit" className='login__form-btn'>Submit</button>
         </form>
     </div>
     );

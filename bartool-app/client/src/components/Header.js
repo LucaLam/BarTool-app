@@ -27,8 +27,8 @@ render () {
     return (
     <Menu>
         <a id="home" className="menu-item" href="/search">Search</a>
-        <a id="about" className="menu-item" href="/about">Saved Drinks</a>
-        <a id="contact" className="menu-item" href="/contact">Sign Out</a>
+        <a id="about" className="menu-item" href="/saved">Saved Drinks</a>
+        <a id="contact" className="menu-item" href="/">Sign Out</a>
         {/* <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a> */}
     </Menu>
     );

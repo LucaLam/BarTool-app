@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import './search.scss';
 import Result from './Result';
 import axios from "axios";
+import Logo from './Logo';
 
 
 export class Search extends Component {
@@ -46,23 +48,31 @@ closeSearch = event => {
     this.setState({
         isShowing: false
     })
-}
+};
 
 render() {
     return (
-    <div>
+    <div className='search'>
         <Header />
-        <form onSubmit={this.handleSubmit}>
+        <h2>Welcome, {this.props.username}</h2>
+        <form onSubmit={this.handleSubmit} className='search__form'>
         <input
             placeholder="Search"
             name="drinkName"
             value={this.state.drink}
             onChange={this.handleChange}
+            className='search__form-field'
         ></input>
-        <button>Drink!</button>
+        <button className='search__form-btn'>Drink!</button>
         </form>
         {
-        this.state.isShowing ? <Result recipe={this.state} closeSearch={this.closeSearch} /> : null }
+        this.state.isShowing ? <Result 
+        recipe={this.state} 
+        closeSearch={this.closeSearch} 
+
+        /> : null 
+        }
+        <Logo />
     </div>
     );
 }
