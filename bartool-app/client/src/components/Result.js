@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import StatRating from './StarRating'
+import addIcon from '../assets/add.svg';
+import './result.scss'
 
 export class Result extends Component {
 
@@ -18,23 +20,23 @@ export class Result extends Component {
         let ingredient = this.props.recipe.ingredients.map(item => {
                 return(
                     <>
-                        <li>{this.convertToOunces(item.amount)} 
-                        {this.convertUnit(item.unit)} 
-                        {item.ingredient}</li>
+                        <li className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li>
                     </>
                     )
             })
         return (
-            <div>
-                <button onClick={this.props.closeSearch}>X</button>
-                <h1>{this.props.recipe.drink}</h1>
-                <ul>
+            <div className='result'>
+                <button className='result__close-btn' onClick={this.props.closeSearch}>X</button>
+                <h2 className='result__title'>{this.props.recipe.drink}</h2>
+                <ul className='result__ingredient-list'>
                 {ingredient}
                 </ul>
-                <p>{this.props.recipe.preparation}</p>
-                <p>Garnish: {this.props.recipe.garnish}</p>
+                <p className='result__prep'>{this.props.recipe.preparation}</p>
+                <p className='result__garnish'>Garnish: {this.props.recipe.garnish}</p>
                 <StatRating />
-                <div onClick={this.addHandler}>+</div>
+                <span className='result__add-btn' onClick={this.addHandler}>
+                <img className='result__add-icon' src={addIcon} alt='' />
+                </span>
             </div>
             
         )

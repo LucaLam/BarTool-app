@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import './search.scss';
+import searchIcon from '../assets/magnifying-glass.svg';
 import Result from './Result';
 import axios from "axios";
 import Logo from './Logo';
+
 
 
 export class Search extends Component {
@@ -55,6 +57,7 @@ render() {
     <div className='search'>
         <Header />
         <h2>Welcome, {this.props.username}</h2>
+        <div className='search__test'>
         <form onSubmit={this.handleSubmit} className='search__form'>
         <input
             placeholder="Search"
@@ -63,7 +66,9 @@ render() {
             onChange={this.handleChange}
             className='search__form-field'
         ></input>
-        <button className='search__form-btn'>Drink!</button>
+        <button className='search__form-btn'>
+            <img className='search__search-icon' src={searchIcon} alt='' />
+        </button>
         </form>
         {
         this.state.isShowing ? <Result 
@@ -72,6 +77,7 @@ render() {
 
         /> : null 
         }
+        </div>
         <Logo />
     </div>
     );

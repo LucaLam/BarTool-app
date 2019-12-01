@@ -1,0 +1,62 @@
+@import'../styles/base.scss';
+
+.result{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 320px;
+    background: snow;
+    border-radius: 8px;
+
+    &__title{
+        font-family: 'Economica', sans-serif;
+        color: #EB225A;
+        margin-top: 16px;
+        padding-top: 15px;
+        margin-bottom: 15px;
+    }
+    &__ingredient-item{
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &__prep{
+        font-family: 'Roboto', sans-serif;
+        margin-top: 15px;
+    }
+    &__garnish{
+        font-family: 'Roboto', sans-serif;
+        margin-top: 15px;
+        margin-bottom: 15px;;
+    }
+
+    &__add-btn{
+        float: right;
+        border-radius: 50%;
+        border: 1px black solid;
+        width: 50px;
+        height: 50px;
+    }
+
+    &__add-icon{
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        margin-top: 13px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &__close-btn{
+        float: right;
+        right: 100px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid lightgray;
+        background: slategrey;
+        color: whitesmoke;
+        opacity: 0.8;
+
+    }
+}
