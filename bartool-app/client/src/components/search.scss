@@ -17,6 +17,7 @@
         height: 40px;
         border-radius: 40px;
         padding: 10px;
+        padding-right: 0;
     }
 
     &__form-label{
@@ -66,4 +67,10 @@
     background: #EB225A;
     opacity: 0.9;
 
+}
+
+.input:focus{
+background: rgba(0,0,0,.1);
+border-radius: 5px;
+outline: none;
 }

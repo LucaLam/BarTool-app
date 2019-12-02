@@ -1,11 +1,12 @@
 @import'../styles/base.scss';
 
 .result{
+    position: relative;
     margin-left: 16px;
     margin-right: 16px;
     padding-left: 24px;
     padding-right: 24px;
-    height: 320px;
+    height: 100%;
     background: snow;
     border-radius: 8px;
 

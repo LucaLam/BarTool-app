@@ -1,34 +1,68 @@
-import React, { Component } from 'react'
-import './app.scss'
-import Login from './components/Login'
-import Search from './components/Search'
-import Logo from './components/Logo'
+import React, { Component } from 'react';
+import './app.scss';
+import "./components/login.scss";
+import axios from "axios";
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import Search from './components/Search';
+import SavedPage from './components/SavedPage';
+import Login from "./components/Login"
 
 export class App extends Component {
-  //Setting state using data from child comp: Search.js
-  state={
-    user: ''
+  state = {
+    id: "",
+    user: "",
+    redirect: false,
+    noShow: false
+};
+
+handleSubmit = event => {
+  event.preventDefault();
+  if (!this.state.id || isNaN(this.state.id)) {
+  return alert("ID Required!");
+  } else {
+  axios.get("http://localhost:8080/user").then(response => {
+      console.log(response.data);
+      //look thru data, compare existing IDs to entered ID and 'grant entry' or return an alert
+      let user = response.data.find(user => user.id === this.state.id)
+      console.log(user);
+          if(!user){
+              alert('User Not Found!')
+          } else{
+              this.setState({
+                  user: user.name,
+                  id: "",
+                  redirect: true
+              })
+          }
+  })
+  
   }
+};
 
-
-  getUserFromChild = (childData) => {
-    console.log('childData =',childData)
-    this.setState({
-      user: childData
-    })
-  };
-
-
+handleChange = event => {
+  this.setState({
+  id: event.target.value
+  });
+};
 
   render() {
     return (
-      <div className='app'>
-        <h1>BarTool</h1>
-        <Login getUserFromChild={this.getUserFromChild} />
-        <Logo />
-        {/* <Search username={this.state.user}/> */}
-        
-      </div>
+      <>
+      <div>
+    </div>
+    <BrowserRouter>
+    <Switch>
+    <Route path="/" exact render={() => <Login 
+      id={this.state.id}
+      user={this.state.user}
+      redirect={this.state.redirect}
+      handleSubmit={this.handleSubmit}
+      handleChange={this.handleChange} />} />
+    <Route path='/search' render={() => <Search user={this.state.user} />} />
+    <Route path='/saved' component={SavedPage} />
+    </Switch>
+    </BrowserRouter>
+    </>
     )
   }
 }

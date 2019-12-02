@@ -53,10 +53,11 @@ closeSearch = event => {
 };
 
 render() {
+    console.log(this.props)
     return (
     <div className='search'>
         <Header />
-        <h2>Welcome, {this.props.username}</h2>
+        <h2>Welcome, {this.props.user}</h2>
         <div className='search__test'>
         <form onSubmit={this.handleSubmit} className='search__form'>
         <input

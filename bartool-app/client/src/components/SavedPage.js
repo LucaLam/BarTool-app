@@ -11,7 +11,6 @@ export class SavedPage extends Component {
     componentDidMount(){
         axios.get("http://localhost:8080/user").then(response => {
             console.log(response.data)
-            //use a while loop to state if the current user is logged in, always return the same array here.
         }
         )}
 

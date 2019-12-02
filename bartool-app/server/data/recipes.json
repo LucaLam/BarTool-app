@@ -99,7 +99,7 @@
     "category": "Longdrink",
     "ingredients": [
         { "unit": "cl",
-        "amount": 4,
+        "amount": 3,
         "ingredient": "White rum",
         "label": "White Cuban Rum" },
         { "unit": "cl",

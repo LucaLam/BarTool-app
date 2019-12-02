@@ -21,6 +21,7 @@ export class Result extends Component {
                 return(
                     <>
                         <li className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li>
+                        <li>{item.special}</li>
                     </>
                     )
             })
