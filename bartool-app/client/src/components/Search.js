@@ -53,7 +53,6 @@ closeSearch = event => {
 };
 
 render() {
-    console.log(this.props)
     return (
     <div className='search'>
         <Header />

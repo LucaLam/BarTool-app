@@ -5,7 +5,7 @@ import axios from "axios";
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Search from './components/Search';
 import SavedPage from './components/SavedPage';
-import Login from "./components/Login"
+import Login from "./components/LogIn"
 
 export class App extends Component {
   state = {
@@ -21,10 +21,8 @@ handleSubmit = event => {
   return alert("ID Required!");
   } else {
   axios.get("http://localhost:8080/user").then(response => {
-      console.log(response.data);
       //look thru data, compare existing IDs to entered ID and 'grant entry' or return an alert
       let user = response.data.find(user => user.id === this.state.id)
-      console.log(user);
           if(!user){
               alert('User Not Found!')
           } else{
