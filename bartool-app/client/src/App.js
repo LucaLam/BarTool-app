@@ -5,7 +5,7 @@ import axios from "axios";
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Search from './components/Search';
 import SavedPage from './components/SavedPage';
-import Login from "./components/LogIn"
+import Login from "./components/Login"
 
 export class App extends Component {
   state = {
@@ -27,7 +27,7 @@ handleSubmit = event => {
               alert('User Not Found!')
           } else{
               this.setState({
-                  user: user.name,
+                  user: localStorage.setItem('user', user.name),
                   id: "",
                   redirect: true
               })
@@ -46,8 +46,6 @@ handleChange = event => {
   render() {
     return (
       <>
-      <div>
-    </div>
     <BrowserRouter>
     <Switch>
     <Route path="/" exact render={() => <Login 

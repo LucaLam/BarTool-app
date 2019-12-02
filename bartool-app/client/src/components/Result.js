@@ -6,8 +6,11 @@ import './result.scss'
 export class Result extends Component {
 
     convertToOunces=(num)=>{
+        if(num){
         let ounces = num / 3;
-        return ounces;
+        return ounces;} else{
+            return;
+        }
     };
 
     convertUnit = (value)=>{
@@ -21,7 +24,7 @@ export class Result extends Component {
                 return(
                     <>
                         <li className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li>
-                        <li>{item.special}</li>
+                        <li className='result__ingredient-item'>{item.special}</li>
                     </>
                     )
             })

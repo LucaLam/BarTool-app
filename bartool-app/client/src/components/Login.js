@@ -6,7 +6,6 @@ import Logo from "./Logo"
 export class Login extends Component {
 
 render() {
-    console.log("The current user is:", this.props);
     const redirect = this.props.redirect;
     if (redirect) {
     return <Redirect to="/search" />;
