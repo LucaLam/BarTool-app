@@ -5,16 +5,19 @@ import searchIcon from '../assets/magnifying-glass.svg';
 import Result from './Result';
 import axios from "axios";
 import Logo from './Logo';
+import addIcon from '../assets/add.svg';
+import Modal from "./Modal";
 
 
 
 export class Search extends Component {
 state = {
     drink: "",
-    ingredients: [[]],
+    ingredients: [], // was an array inside an array
     preparation: '',
     garnish: '',
-    isShowing: false
+    isShowing: false,
+    addFormOpen: false
 };
 
 handleSubmit = event => {
@@ -46,17 +49,28 @@ handleChange = event => {
     });
 };
 
+//opens returned drink
 closeSearch = event => {
     this.setState({
-        isShowing: false
+        isShowing: false,
+        drink: ''
     })
 };
+
+//to add a new drink to the main repo
+addHandler = event => {
+    this.setState({
+        addFormOpen: !this.state.addFormOpen
+    })
+    
+}
+
 
 render() {
     return (
     <div className='search'>
         <Header />
-        <h2>Welcome, {localStorage.getItem('user', this.props.user)}</h2>
+        <h2 className='search__welcome-title'>Welcome, {localStorage.getItem('user', this.props.user)}</h2>
         <div className='search__test'>
         <form onSubmit={this.handleSubmit} className='search__form'>
         <input
@@ -79,6 +93,12 @@ render() {
         }
         </div>
         <Logo />
+        <span className='add-btn' onClick={this.addHandler}>
+        <img className='add-icon' src={addIcon} alt='' />
+        </span> 
+        { this.state.addFormOpen ? 
+        <Modal /> : null
+        }
     </div>
     );
 }

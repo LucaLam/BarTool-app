@@ -14,7 +14,7 @@
 
 .menu-item{
     text-decoration: none;
-    color: #373a47;
+    color: whitesmoke;
     outline: none;
     font-family: 'Economica', sans-serif; 
 }
@@ -61,7 +61,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   /* General sidebar styles */
 .bm-menu {
-    // background: #373a47;
+    background: rgba(0, 0, 0, 0.7);
     padding: 3em 0em 0 1em;
     font-size: 1.85em;
 

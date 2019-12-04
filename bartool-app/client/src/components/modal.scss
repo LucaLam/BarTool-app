@@ -1,0 +1,21 @@
+@import'../styles/base.scss';
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    width: 80%;
+    height: 100%;
+    border: 1px solid black;
+    margin-bottom: 24px;
+
+    &__add-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+        width: 100%;
+        height: 100%;
+    }
+}

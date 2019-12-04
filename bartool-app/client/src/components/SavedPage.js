@@ -2,10 +2,25 @@ import React, { Component } from 'react'
 import Header from './Header'
 import axios from 'axios';
 import Logo from './Logo';
+import './savedPage.scss';
 
 export class SavedPage extends Component {
     state={
         saved:[]
+    };
+
+    convertToOunces=(num)=>{
+        if(num){
+        let ounces = num / 3;
+        return ounces;} else{
+            return;
+        }
+    };
+
+    convertUnit = (value)=>{
+        if(value){
+            return 'oz';
+        }
     };
 
     componentDidMount(){
@@ -20,22 +35,27 @@ export class SavedPage extends Component {
         }
         )}
     render() {
+        console.log(this.state.saved);
+        
     let savedDrinkList = this.state.saved.map(item => {
             return(
-                <>
-                <h2>{item.name}</h2>
+            <div className='saved'>
+                <h2 className='saved__title'>{item.name}</h2>
                 <ul>
                 {
                     item.ingredients.map(item => {
                         return(
-                            <li>{item.amount} {item.unit} {item.ingredient}</li>
+                            <>
+                            { item.amount || item.unit || item.ingredient  ? <li className='saved__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li> : null}
+                            { item.special ? <li className='saved__ingredient-item'>{item.special}</li> : null}
+                            </>
                         )
                     })
                 }
                 </ul>
-                <p>{item.preparation}</p>
-                <p>{item.garnish}</p>
-                </>
+                <p className='saved__prep'>{item.preparation}</p>
+                <p className='saved__garnish'>Garnish: {item.garnish}</p>
+            </div>
             )
         })
         return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import './result.scss'
 
 class StarRating extends React.Component {
 
@@ -17,7 +18,7 @@ render() {
     const { rating } = this.state;
     
     return (                
-    <div>
+    <div className='star'>
         <StarRatingComponent 
         name="rate1" 
         starCount={5}

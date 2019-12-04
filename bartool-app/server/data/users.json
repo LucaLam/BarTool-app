@@ -7,13 +7,13 @@
     "category": "Before Dinner Cocktail",
     "ingredients": [
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Prosecco" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Campari" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Sweet Vermouth" }
     ],
     "garnish": "Grapefruit twist",
@@ -29,13 +29,13 @@
     "category": "Before Dinner Cocktail",
     "ingredients": [
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Prosecco" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Campari" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Sweet Vermouth" }
     ],
     "garnish": "Grapefruit twist",
@@ -51,17 +51,17 @@
     "category": "Before Dinner Cocktail",
     "ingredients": [
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Prosecco" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Campari" },
     { "unit": "cl",
-        "amount": 1,
+        "amount": 3,
         "ingredient": "Sweet Vermouth" }
     ],
     "garnish": "Grapefruit twist",
     "preparation": "Stir and pour into a rocks glass on ice." }
     ]
-  }
+}
 ]

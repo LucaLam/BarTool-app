@@ -6,6 +6,7 @@
     margin-right: 16px;
     padding-left: 24px;
     padding-right: 24px;
+    padding-bottom: 24px;;
     height: 100%;
     background: snow;
     border-radius: 8px;
@@ -31,33 +32,39 @@
         margin-bottom: 15px;;
     }
 
-    &__add-btn{
-        float: right;
-        border-radius: 50%;
-        border: 1px black solid;
-        width: 50px;
-        height: 50px;
-    }
-
-    &__add-icon{
-        display: flex;
-        align-self: center;
-        justify-self: center;
-        margin-top: 13px;
-        width: 20px;
-        height: 20px;
-    }
-
     &__close-btn{
         float: right;
         right: 100px;
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         border: 1px solid lightgray;
         background: slategrey;
         color: whitesmoke;
         opacity: 0.8;
+        padding-bottom: 3px;
 
     }
+
+    &__rating-add-btn-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__add-btn{
+        margin: 0;
+        padding: 5px;
+        font-family: 'Roboto', sans-serif;
+        border: 1px solid #EB225A;
+        transition-duration: 0.4s;
+    }
+    &__add-btn:hover{background-color:#EB225A;}
+    
+}
+
+.star{
+    margin: 0;
 }

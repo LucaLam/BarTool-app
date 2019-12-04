@@ -1,0 +1,35 @@
+@import'../styles/base.scss';
+
+.saved{
+
+    position: relative;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    height: 100%;
+    background: snow;
+    border-radius: 8px;
+
+    &__title{
+        font-family: 'Economica', sans-serif;
+        color: #EB225A;
+        margin-top: 16px;
+        padding-top: 15px;
+        margin-bottom: 15px;
+    }
+    &__ingredient-item{
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &__prep{
+        font-family: 'Roboto', sans-serif;
+        margin-top: 15px;
+    }
+    &__garnish{
+        font-family: 'Roboto', sans-serif;
+        margin-top: 15px;
+        margin-bottom: 15px;;
+    }
+}
