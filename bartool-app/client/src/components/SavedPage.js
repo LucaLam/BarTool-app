@@ -3,6 +3,7 @@ import Header from './Header'
 import axios from 'axios';
 import Logo from './Logo';
 import './savedPage.scss';
+import Remove from './Remove';
 
 export class SavedPage extends Component {
     state={
@@ -34,12 +35,14 @@ export class SavedPage extends Component {
             })
         }
         )}
+
     render() {
         console.log(this.state.saved);
         
     let savedDrinkList = this.state.saved.map(item => {
             return(
             <div className='saved'>
+                {/* <Remove /> */}
                 <h2 className='saved__title'>{item.name}</h2>
                 <ul>
                 {

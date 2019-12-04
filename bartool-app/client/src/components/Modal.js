@@ -10,6 +10,15 @@ export class Modal extends Component {
         garnish: ''
     }
 
+    handleRemove= event => {
+        event.preventDefault()
+        
+        this.state.ingredients.splice(1)
+        this.setState({
+            ingredients: this.state.ingredients
+        })
+    }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -39,6 +48,7 @@ export class Modal extends Component {
                                 <input placeholder='ingredient' name='ingredient' value={ingredient} onChange={this.handleChange}></input>
                                 <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={this.handleChange}></input>
                                 <input name='unit' value='cl' ></input>
+                                <button onClick={this.handleRemove}>Remove</button>
                             </>
                         )
                     })
