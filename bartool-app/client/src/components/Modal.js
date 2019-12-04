@@ -10,12 +10,15 @@ export class Modal extends Component {
         garnish: ''
     }
 
-    handleRemove= event => {
+    handleRemove= (event, index) => {
         event.preventDefault()
         
-        this.state.ingredients.splice(1)
+        let copyOfIngredients = this.state.ingredients.slice();
+        copyOfIngredients.splice(index, 1);
+        console.log(copyOfIngredients);
+
         this.setState({
-            ingredients: this.state.ingredients
+            ingredients: copyOfIngredients
         })
     }
 
@@ -26,9 +29,37 @@ export class Modal extends Component {
         });
     };
 
+    handleIng = (event, index) => {
+        let ingredients = this.state.ingredients
+        let targetIng = ingredients[index]; // assuming that the ingredient object is already in the array
+
+        if (targetIng === undefined || targetIng === '') {
+            targetIng = { unit: 'cl' };
+        }
+
+        // TODO: convert the amount, if that's the event
+        let valueToSet;
+        if (event.target.name === 'amount') {
+            console.log('need to convert this before setting it...', event.target.value);
+            // TODO: need to write the converter function
+            valueToSet = event.target.value;
+            // valueToSet = ouncesToCl(event.target.value);
+        } else {
+            valueToSet = event.target.value;
+        }
+
+
+        targetIng[event.target.name] = valueToSet;
+        ingredients[index] = targetIng;
+
+        this.setState({
+            ingredients: ingredients
+        });
+    }
+
     addNewIngredient = event =>{
         this.setState({
-            ingredients: [...this.state.ingredients, '']
+            ingredients: [...this.state.ingredients, { unit: 'cl' }]
         })
     }
 
@@ -42,13 +73,13 @@ export class Modal extends Component {
                     <input placeholder='name' name='name' value={this.state.name} onChange={this.handleChange}></input>
                     <br />
                     <label>Ingredients:</label>
-                    { this.state.ingredients.map(ingredient => {
+                    { this.state.ingredients.map((ingredient, index) => {
                         return(
                             <>
-                                <input placeholder='ingredient' name='ingredient' value={ingredient} onChange={this.handleChange}></input>
-                                <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={this.handleChange}></input>
-                                <input name='unit' value='cl' ></input>
-                                <button onClick={this.handleRemove}>Remove</button>
+                                <input placeholder='ingredient' name='ingredient' onChange={(event) => this.handleIng(event, index)}></input>
+                                <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={(event) => this.handleIng(event, index)}></input>
+                                <input name='unit' value='cl' disabled></input>
+                                <button onClick={(event) => this.handleRemove(event, index)}>Remove</button>
                             </>
                         )
                     })

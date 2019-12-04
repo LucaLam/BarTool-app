@@ -7,7 +7,7 @@ export class Result extends Component {
 
     convertToOunces=(num)=>{
         if(num){
-        let ounces = num / 3;
+        let ounces = Math.round(num /3 * 100) / 100;
         return ounces;} else{
             return;
         }

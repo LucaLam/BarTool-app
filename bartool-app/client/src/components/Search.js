@@ -72,8 +72,6 @@ addHandler = event => {
     })
     
 }
-
-
 render() {
     return (
     <div className='search'>
