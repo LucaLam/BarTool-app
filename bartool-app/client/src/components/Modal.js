@@ -31,8 +31,6 @@ export class Modal extends Component {
         
         let copyOfIngredients = this.state.ingredients.slice();
         copyOfIngredients.splice(index, 1);
-        console.log(copyOfIngredients);
-
         this.setState({
             ingredients: copyOfIngredients
         })
@@ -60,7 +58,6 @@ export class Modal extends Component {
 
         let valueToSet;
         if (event.target.name === 'amount') {
-            // valueToSet = event.target.value;
             valueToSet = this.ouncesToCl(event.target.value);
         } else {
             valueToSet = event.target.value;

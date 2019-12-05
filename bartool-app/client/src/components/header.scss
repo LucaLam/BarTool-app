@@ -1,13 +1,13 @@
 @import '../styles/base.scss';
 
 .header{
-
     &__txt-logo{
     font-family: 'Economica', sans-serif;
     color: #EB225A;
     font-size: 80px;
     //remove this and re-do it properly
-    margin-top: 16px;
+    margin-top: 0;
+    padding-top: 16px;
     margin-left: 75px;
     }
 }
@@ -65,10 +65,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     padding: 3em 0em 0 1em;
     font-size: 1.85em;
 
-}
-
-  /* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
 }
 
   /* Wrapper for item list */

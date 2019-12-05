@@ -24,7 +24,7 @@ handleSubmit = event => {
     alert("Please Enter a Drink Name.");
     } else {
     axios.get("http://localhost:8080/recipes").then(response => {
-        let drink = response.data.find(drink => drink.name === this.state.drink)
+        let drink = response.data.find(drink => drink.name.toLowerCase() === this.state.drink.toLowerCase())
         if(!drink){
             alert('Drink Not Found!')
         } else{
@@ -43,15 +43,8 @@ handleSubmit = event => {
 
 handleChange = event => {
     let drink = event.target.value
-    function titleCase(value) {
-        let splitStr = value.toLowerCase().split(' ');
-        for (let i = 0; i < splitStr.length; i++) {
-            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
-        }
-        return splitStr.join(' '); 
-    }
     this.setState({
-    drink: titleCase(drink)
+    drink: drink
     });
 };
 

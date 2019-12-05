@@ -22,7 +22,6 @@ export class Result extends Component {
 
     //add a new drink to the saved page
     handleAdd = () =>{
-
     const newSavedDrinks = {
     drink: this.props.recipe.drink,
     ingredients: this.props.recipe.ingredients,
@@ -31,18 +30,17 @@ export class Result extends Component {
         }
 
         axios.post(`http://localhost:8080/user/${localStorage.getItem('user')}/savedDrink`, newSavedDrinks)
-        .then(response=> {
+        .then(response => {
         console.log(response);
         })
     }
     
     render() {
         console.log(this.props);
-        
         let ingredient = this.props.recipe.ingredients.map(item => {
                 return(
                     <>
-                        {item.amount || item.unit || item.ingredient ? <li key={item} className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li> : null }
+                        {item.amount || item.unit || item.ingredient ? <li className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li> : null }
                         { item.special ? <li className='result__ingredient-item'>{item.special}</li> : null }
                     </>
                     )

@@ -35,9 +35,18 @@ router.post('/recipes', (req, res) => {
         preparation: req.body.preparation,
         garnish: req.body.garnish
     }
-
     drinks.push(newDrink);
     res.send(newDrink);
 })
 
+router.delete('/user/:name/savedDrink/:id', (req, res) => {
+    let name = req.params.name
+    let index = req.params.id
+    let foundUser = users.find(item => name === item.name)
+    foundUser.savedDrinks.splice(index, 1)
+    
+    res.send(foundUser)
+})
+
 module.exports = router;
+
