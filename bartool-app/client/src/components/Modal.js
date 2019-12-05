@@ -29,6 +29,11 @@ export class Modal extends Component {
         });
     };
 
+    ouncesToCl=(num)=>{
+        let cL = num * 3;
+        return cL
+    }
+
     handleIng = (event, index) => {
         let ingredients = this.state.ingredients
         let targetIng = ingredients[index]; // assuming that the ingredient object is already in the array
@@ -42,8 +47,8 @@ export class Modal extends Component {
         if (event.target.name === 'amount') {
             console.log('need to convert this before setting it...', event.target.value);
             // TODO: need to write the converter function
-            valueToSet = event.target.value;
-            // valueToSet = ouncesToCl(event.target.value);
+            // valueToSet = event.target.value;
+            valueToSet = this.ouncesToCl(event.target.value);
         } else {
             valueToSet = event.target.value;
         }
@@ -78,7 +83,6 @@ export class Modal extends Component {
                             <>
                                 <input placeholder='ingredient' name='ingredient' onChange={(event) => this.handleIng(event, index)}></input>
                                 <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={(event) => this.handleIng(event, index)}></input>
-                                <input name='unit' value='cl' disabled></input>
                                 <button onClick={(event) => this.handleRemove(event, index)}>Remove</button>
                             </>
                         )
