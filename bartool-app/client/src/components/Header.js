@@ -17,6 +17,10 @@ export class Header extends Component {
 export default Header
 
 class Burger extends React.Component {
+
+handleSignOut= (event) => {
+    localStorage.removeItem('user')
+}
     
 showSettings (event) {
     event.preventDefault();
@@ -28,7 +32,7 @@ render () {
     <Menu>
         <a id="home" className="menu-item" href="/search">Search</a>
         <a id="about" className="menu-item" href="/saved">Saved Drinks</a>
-        <a id="contact" className="menu-item" href="/">Sign Out</a>
+        <a id="contact" className="menu-item" href="/" onClick={this.handleSignOut}>Sign Out</a>
     </Menu>
     );
 }

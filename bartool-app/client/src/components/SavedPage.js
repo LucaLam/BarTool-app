@@ -36,13 +36,26 @@ export class SavedPage extends Component {
         }
         )}
 
+    deleteSavedDrink = (event) => {
+        axios.delete("http://localhost:8080/user").then(response => {
+            let saved = response.data.filter(user => user.name === localStorage.getItem('user'));
+            saved.map(item => {
+                this.setState({
+                    saved: item.savedDrinks
+                })
+                
+            })
+        }
+        )
+    }
+
     render() {
         console.log(this.state.saved);
         
     let savedDrinkList = this.state.saved.map(item => {
             return(
             <div className='saved'>
-                {/* <Remove /> */}
+                <Remove deleteSavedDrink={this.deleteSavedDrink} />
                 <h2 className='saved__title'>{item.name}</h2>
                 <ul>
                 {

@@ -1,0 +1,31 @@
+@import'../styles/base.scss';
+
+.main-wrapper{
+    display: inline;
+}
+
+.remove-btn-container{
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    float: right;
+    
+}
+
+.remove-btn-img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.remove-btn{
+    position: absolute;
+    left: 77%;
+    bottom: 70%;
+    border: 1px solid pink;
+    padding: 5px;
+    background: none;
+    text-decoration: none;
+    outline: none;
+
+}

@@ -16,7 +16,7 @@ render() {
         <form onSubmit={this.props.handleSubmit} className="login__form">
         <label className="login__form-label">Please Enter your Id:</label>
         <input
-            type="text"
+            type="password"
             name="username"
             value={this.props.id}
             onChange={this.props.handleChange}
