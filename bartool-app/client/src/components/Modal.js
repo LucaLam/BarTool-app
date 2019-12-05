@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import './modal.scss'
 
 export class Modal extends Component {
@@ -8,6 +9,21 @@ export class Modal extends Component {
         ingredients: [],
         preparation: '',
         garnish: ''
+    }
+
+    submitHandler = (event) =>{
+        const newDrinkSubmission = this.state
+        event.preventDefault();
+        axios.post('http://localhost:8080/recipes', newDrinkSubmission)
+        .then(response => {
+            console.log(response);
+        })
+        this.setState({
+            name: '',
+            ingredients: [],
+            preparation: '',
+            garnish: ''
+        })
     }
 
     handleRemove= (event, index) => {
@@ -42,17 +58,13 @@ export class Modal extends Component {
             targetIng = { unit: 'cl' };
         }
 
-        // TODO: convert the amount, if that's the event
         let valueToSet;
         if (event.target.name === 'amount') {
-            console.log('need to convert this before setting it...', event.target.value);
-            // TODO: need to write the converter function
             // valueToSet = event.target.value;
             valueToSet = this.ouncesToCl(event.target.value);
         } else {
             valueToSet = event.target.value;
         }
-
 
         targetIng[event.target.name] = valueToSet;
         ingredients[index] = targetIng;
@@ -70,21 +82,20 @@ export class Modal extends Component {
 
 
     render() {
-        console.log(this.state);
         return (
             <div className='modal'>
-                <form className="modal__add-form">
+                <form className="modal__add-form" onSubmit={this.submitHandler}>
                     <label>Name:</label>
                     <input placeholder='name' name='name' value={this.state.name} onChange={this.handleChange}></input>
                     <br />
                     <label>Ingredients:</label>
                     { this.state.ingredients.map((ingredient, index) => {
                         return(
-                            <>
+                            <div key={index}>
                                 <input placeholder='ingredient' name='ingredient' onChange={(event) => this.handleIng(event, index)}></input>
                                 <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={(event) => this.handleIng(event, index)}></input>
                                 <button onClick={(event) => this.handleRemove(event, index)}>Remove</button>
-                            </>
+                            </div>
                         )
                     })
                     }

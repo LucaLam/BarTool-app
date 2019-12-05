@@ -28,4 +28,16 @@ router.post('/user/:name/savedDrink', (req, res) => {
     res.send(newSavedDrink);
 })
 
+router.post('/recipes', (req, res) => {
+    let newDrink = {
+        name: req.body.name,
+        ingredients: req.body.ingredients,
+        preparation: req.body.preparation,
+        garnish: req.body.garnish
+    }
+
+    drinks.push(newDrink);
+    res.send(newDrink);
+})
+
 module.exports = router;

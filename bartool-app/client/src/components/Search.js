@@ -8,8 +8,6 @@ import Logo from './Logo';
 import addIcon from '../assets/add.svg';
 import Modal from "./Modal";
 
-
-
 export class Search extends Component {
 state = {
     drink: "",
@@ -94,7 +92,6 @@ render() {
         this.state.isShowing ? <Result 
         recipe={this.state} 
         closeSearch={this.closeSearch} 
-
         /> : null 
         }
         </div>
