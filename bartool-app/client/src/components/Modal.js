@@ -81,6 +81,7 @@ export class Modal extends Component {
     render() {
         return (
             <div className='modal'>
+                <h2 className='modal__add-form-title'>Add a new cocktail:</h2>
                 <form className="modal__add-form" onSubmit={this.submitHandler}>
                     <label className='modal__drink-title'>Name:</label>
                     <input className='modal__drink-title-field' placeholder='Name' name='name' value={this.state.name} onChange={this.handleChange}></input>

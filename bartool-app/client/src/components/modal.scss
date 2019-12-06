@@ -9,8 +9,16 @@
     height: 100%;
     border: 1px solid lightgray;
     border-radius: 10px;
-    margin-bottom: 24px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 10px;
+
+    &__add-form-title{
+        font-family: 'Economica', sans-serif;
+        color: #EB225A;
+        padding-top: 15px;
+        margin-bottom: 15px;
+    }
 
     &__add-form{
     display: flex;
@@ -29,7 +37,7 @@
 
     &__drink-title-field{
         font-family: 'Roboto', sans-serif;
-        border-radius: 10px;
+        border-radius: 8px;
         height: 24px;
         width: 70%;
         text-decoration: none;
@@ -53,7 +61,7 @@
 
     &__ingredient-field{
         font-family: 'Roboto', sans-serif;
-        border-radius: 10px;
+        border-radius: 8px;
         height: 30px;
         width: 70%;
         text-decoration: none;
@@ -64,7 +72,7 @@
 
     &__amount-field{
         font-family: 'Roboto', sans-serif;
-        border-radius: 10px;
+        border-radius: 8px;
         height: 24px;
         width: 70%;
         text-decoration: none;
@@ -75,7 +83,7 @@
     &__remove-btn{
         border: 1px solid #EB225A;
         padding: 3px;
-        border-radius: 8px;
+        border-radius: 4px;
         text-decoration: none;
         outline: none;
         background: pink;
@@ -93,7 +101,7 @@
 
     &__prep-field{
         font-family: 'Roboto', sans-serif;
-        border-radius: 10px;
+        border-radius: 8px;
         height: 50px;
         width: 70%;
         text-decoration: none;
@@ -110,7 +118,7 @@
 
     &__garnish-field{
         font-family: 'Roboto', sans-serif;
-        border-radius: 10px;
+        border-radius: 8px;
         height: 24px;
         width: 70%;
         text-decoration: none;
@@ -124,7 +132,7 @@
     &__submit-btn{
         border: 1px solid #EB225A;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 5px;
         text-decoration: none;
         outline: none;
         background: pink;
