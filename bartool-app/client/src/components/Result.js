@@ -38,12 +38,12 @@ export class Result extends Component {
     
     render() {
         console.log(this.props);
-        let ingredient = this.props.recipe.ingredients.map(item => {
+        let ingredient = this.props.recipe.ingredients.map((item, index) => {
                 return(
-                    <>
+                    <div key={index}>
                         {item.amount || item.unit || item.ingredient ? <li className='result__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li> : null }
                         { item.special ? <li className='result__ingredient-item'>{item.special}</li> : null }
-                    </>
+                    </div>
                     )
             })
         return (

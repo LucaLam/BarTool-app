@@ -54,17 +54,17 @@ export class SavedPage extends Component {
     let savedDrinkList = this.state.saved.map((item, i) => {
         console.log(item)
             return(
-            <div className='saved'>
+            <div key={i} className='saved'>
                 <Remove deleteSavedDrink={this.deleteSavedDrink(i)} />
                 <h2 className='saved__title'>{item.name}</h2>
                 <ul>
                 {
-                    item.ingredients.map(item => {
+                    item.ingredients.map((item, index) => {
                         return(
-                            <>
+                            <div key={index}>
                             { item.amount || item.unit || item.ingredient  ? <li className='saved__ingredient-item'>{this.convertToOunces(item.amount)} {this.convertUnit(item.unit)} {item.ingredient}</li> : null}
                             { item.special ? <li className='saved__ingredient-item'>{item.special}</li> : null}
-                            </>
+                            </div>
                         )
                     })
                 }
