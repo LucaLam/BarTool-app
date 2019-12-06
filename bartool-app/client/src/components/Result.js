@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export class Result extends Component {
 
+    //converts cl (integer) to ounces
     convertToOunces=(num)=>{
         if(num){
         let ounces = Math.round(num /3 * 100) / 100;
@@ -13,14 +14,14 @@ export class Result extends Component {
         }
     };
 
-
+    //converts 'cl' (units the data uses) to 'oz' (common unit)
     convertUnit = (value)=>{
         if(value){
             return 'oz';
         }
     };
 
-    //add a new drink to the saved page
+    //add a drink to the saved page
     handleAdd = () =>{
     const newSavedDrinks = {
     drink: this.props.recipe.drink,
@@ -28,7 +29,7 @@ export class Result extends Component {
     preparation: this.props.recipe.preparation,
     garnish: this.props.recipe.garnish,
         }
-
+        //using local storage to access the user first, then the needed array of saved drinks
         axios.post(`http://localhost:8080/user/${localStorage.getItem('user')}/savedDrink`, newSavedDrinks)
         .then(response => {
         console.log(response);

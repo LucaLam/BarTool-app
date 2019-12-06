@@ -27,6 +27,7 @@ handleSubmit = event => {
               alert('User Not Found!')
           } else{
               this.setState({
+                //Saves the user log-in to localStorage, you can use this data anywhere else in the app.
                   user: localStorage.setItem('user', user.name),
                   id: "",
                   redirect: true
@@ -53,7 +54,7 @@ handleChange = event => {
       user={this.state.user}
       redirect={this.state.redirect}
       handleSubmit={this.handleSubmit}
-      handleChange={this.handleChange} />} />
+      handleChange={this.handleChange} />} /> 
     <Route path='/search' render={() => <Search user={this.state.user} />} />
     <Route path='/saved' component={SavedPage} />
     </Switch>

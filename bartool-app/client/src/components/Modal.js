@@ -11,6 +11,7 @@ export class Modal extends Component {
         garnish: ''
     }
 
+    //posts new ingredients to the back-end and updates the state
     submitHandler = (event) =>{
         const newDrinkSubmission = this.state
         // event.preventDefault();
@@ -26,6 +27,7 @@ export class Modal extends Component {
         })
     }
 
+    //removes a field in the form
     handleRemove= (event, index) => {
         event.preventDefault()
         
@@ -36,6 +38,7 @@ export class Modal extends Component {
         })
     }
 
+    //saves all input field data to state
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -43,11 +46,14 @@ export class Modal extends Component {
         });
     };
 
+    //converts ounces (common measurement) to cl (measurement data uses).
     ouncesToCl=(num)=>{
         let cL = num * 3;
         return cL
     }
 
+
+    //saves the entered ingredients to the state
     handleIng = (event, index) => {
         let ingredients = this.state.ingredients
         let targetIng = ingredients[index]; // assuming that the ingredient object is already in the array
@@ -71,6 +77,7 @@ export class Modal extends Component {
         });
     }
 
+    //makes the form dynamic; ability to add multiple fields
     addNewIngredient = event =>{
         this.setState({
             ingredients: [...this.state.ingredients, { unit: 'cl' }]

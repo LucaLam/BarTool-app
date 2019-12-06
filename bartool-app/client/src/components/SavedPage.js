@@ -9,7 +9,7 @@ export class SavedPage extends Component {
     state={
         saved:[]
     };
-
+    //converts cl (integer) to ounces
     convertToOunces=(num)=>{
         if(num){
         let ounces = Math.round(num /3 * 100) / 100;
@@ -17,13 +17,14 @@ export class SavedPage extends Component {
             return;
         }
     };
-
+    //converts cl (measurement data uses) to 'oz' (common measurement)
     convertUnit = (value)=>{
         if(value){
             return 'oz';
         }
     };
 
+    //retrieves the array of saved drinks from a specific user and saves it to state; we can use that to map through and display the data
     componentDidMount(){
         axios.get("http://localhost:8080/user").then(response => {
             let saved = response.data.filter(user => user.name === localStorage.getItem('user'));
@@ -36,6 +37,7 @@ export class SavedPage extends Component {
         }
         )}
 
+    //removes a saved drink from the array of a specific user and updates the state
     deleteSavedDrink = (index) => (event) => {
         axios.delete(`http://localhost:8080/user/${localStorage.getItem('user')}/savedDrink/${index}`).then(response => {
             console.log(response)  

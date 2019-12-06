@@ -16,8 +16,10 @@ export class Header extends Component {
 
 export default Header
 
+//Class for the burger menu package
 class Burger extends React.Component {
 
+//Removes the user info from localStorage
 handleSignOut= (event) => {
     localStorage.removeItem('user')
 }
@@ -27,7 +29,6 @@ showSettings (event) {
 }
 
 render () {
-    // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
     return (
     <Menu>
         <a id="home" className="menu-item" href="/search">Search</a>

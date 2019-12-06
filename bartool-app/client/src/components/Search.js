@@ -18,12 +18,14 @@ state = {
     addFormOpen: false
 };
 
+//handles the search request for a drink. 
 handleSubmit = event => {
     event.preventDefault();
     if (!this.state.drink) {
     alert("Please Enter a Drink Name.");
     } else {
     axios.get("http://localhost:8080/recipes").then(response => {
+        //toLowerCase allows the search bar to NOT be case sensitive
         let drink = response.data.find(drink => drink.name.toLowerCase() === this.state.drink.toLowerCase())
         if(!drink){
             alert('Drink Not Found!')
@@ -41,6 +43,7 @@ handleSubmit = event => {
     }
 };
 
+//captures the input field 
 handleChange = event => {
     let drink = event.target.value
     this.setState({
@@ -56,7 +59,7 @@ closeSearch = event => {
     })
 };
 
-//to add a new drink to the main repo
+//opens form field in order to add a new drink to the main repo
 addHandler = event => {
     this.setState({
         addFormOpen: !this.state.addFormOpen
