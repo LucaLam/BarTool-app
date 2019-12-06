@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './modal.scss'
+import './form.scss'
 
-export class Modal extends Component {
+export class Form extends Component {
 
     state={
         name: '',
@@ -118,4 +118,4 @@ export class Modal extends Component {
     }
 }
 
-export default Modal
+export default Form

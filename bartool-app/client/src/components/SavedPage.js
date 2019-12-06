@@ -52,7 +52,6 @@ export class SavedPage extends Component {
         
         
     let savedDrinkList = this.state.saved.map((item, i) => {
-        console.log(item)
             return(
             <div key={i} className='saved'>
                 <Remove deleteSavedDrink={this.deleteSavedDrink(i)} />

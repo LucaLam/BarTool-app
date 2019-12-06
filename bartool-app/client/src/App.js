@@ -12,7 +12,7 @@ export class App extends Component {
     id: "",
     user: "",
     redirect: false,
-    noShow: false
+    noShow: false,
 };
 
 handleSubmit = event => {

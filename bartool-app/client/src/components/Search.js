@@ -6,7 +6,8 @@ import Result from './Result';
 import axios from "axios";
 import Logo from './Logo';
 import addIcon from '../assets/add.svg';
-import Modal from "./Modal";
+import Form from "./Form";
+import Modal from 'react-responsive-modal';
 
 export class Search extends Component {
 state = {
@@ -15,20 +16,32 @@ state = {
     preparation: '',
     garnish: '',
     isShowing: false,
-    addFormOpen: false
+    addFormOpen: false,
+
+    open: false
 };
+
+//for popup
+onOpenModal = () => {
+    this.setState({ open: true });
+};
+
+onCloseModal = () => {
+    this.setState({ open: false });
+};
+//pop-up ends
 
 //handles the search request for a drink. 
 handleSubmit = event => {
     event.preventDefault();
     if (!this.state.drink) {
-    alert("Please Enter a Drink Name.");
+    this.onOpenModal();
     } else {
     axios.get("http://localhost:8080/recipes").then(response => {
         //toLowerCase allows the search bar to NOT be case sensitive
         let drink = response.data.find(drink => drink.name.toLowerCase() === this.state.drink.toLowerCase())
         if(!drink){
-            alert('Drink Not Found!')
+            this.onOpenModal();
         } else{
             this.setState({
                 drink: drink.name,
@@ -67,6 +80,7 @@ addHandler = event => {
     
 }
 render() {
+    const { open } = this.state;
     return (
     <div className='search'>
         <Header />
@@ -96,8 +110,19 @@ render() {
         <img className='add-icon' src={addIcon} alt='' />
         </span> 
         { this.state.addFormOpen ? 
-        <Modal /> : null
+        <Form /> : null
         }
+
+        {/* //pop-up */}
+        <div className='pop-up'>
+        <Modal open={open} onClose={this.onCloseModal}>
+        <h3 className='pop-up__message'>Drink Name Not Found!</h3>
+        </Modal>
+        </div>
+      {/* //pop-up */}
+
+
+
     </div>
     );
 }
