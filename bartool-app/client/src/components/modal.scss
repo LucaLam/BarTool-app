@@ -4,18 +4,134 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-content: center;
+    align-items: flex-start;
     width: 80%;
     height: 100%;
-    border: 1px solid black;
+    border: 1px solid lightgray;
+    border-radius: 10px;
     margin-bottom: 24px;
+    padding: 10px;
 
     &__add-form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
     }
+
+    &__drink-title{
+        font-family: 'Roboto', sans-serif;
+        margin-left: 60px;
+        margin-bottom: 5px;
+    }
+
+    &__drink-title-field{
+        font-family: 'Roboto', sans-serif;
+        border-radius: 10px;
+        height: 24px;
+        width: 70%;
+        text-decoration: none;
+        outline: none;
+        padding-left: 5px;
+        
+
+    }
+
+    &__ingredient-list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__ingredient-title{
+        font-family: 'Roboto', sans-serif;
+        margin-left: 60px;
+        margin-bottom: 5px;
+    }
+
+    &__ingredient-field{
+        font-family: 'Roboto', sans-serif;
+        border-radius: 10px;
+        height: 30px;
+        width: 70%;
+        text-decoration: none;
+        outline: none;
+        padding-left: 5px;
+        margin-bottom: 3px;
+    }
+
+    &__amount-field{
+        font-family: 'Roboto', sans-serif;
+        border-radius: 10px;
+        height: 24px;
+        width: 70%;
+        text-decoration: none;
+        outline: none;
+        padding-left: 5px;
+    }
+
+    &__remove-btn{
+        border: 1px solid #EB225A;
+        padding: 3px;
+        border-radius: 8px;
+        text-decoration: none;
+        outline: none;
+        background: pink;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 50px;
+    }
+
+
+    &__prep-title{
+        font-family: 'Roboto', sans-serif;
+        margin-left: 60px;
+        margin-bottom: 5px;
+    }
+
+    &__prep-field{
+        font-family: 'Roboto', sans-serif;
+        border-radius: 10px;
+        height: 50px;
+        width: 70%;
+        text-decoration: none;
+        outline: none;
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+
+    &__garnish-title{
+        font-family: 'Roboto', sans-serif;
+        margin-left: 60px;
+        margin-bottom: 5px;
+    }
+
+    &__garnish-field{
+        font-family: 'Roboto', sans-serif;
+        border-radius: 10px;
+        height: 24px;
+        width: 70%;
+        text-decoration: none;
+        outline: none;
+        padding-left: 5px;
+        margin-bottom: 20px;
+        
+
+    }
+
+    &__submit-btn{
+        border: 1px solid #EB225A;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        outline: none;
+        background: pink;
+    }
+
+    &__submit-btn:hover{background-color:#EB225A;}
+
+
+
 }

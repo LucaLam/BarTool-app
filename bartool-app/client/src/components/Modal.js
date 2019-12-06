@@ -13,7 +13,7 @@ export class Modal extends Component {
 
     submitHandler = (event) =>{
         const newDrinkSubmission = this.state
-        event.preventDefault();
+        // event.preventDefault();
         axios.post('http://localhost:8080/recipes', newDrinkSubmission)
         .then(response => {
             console.log(response);
@@ -82,28 +82,28 @@ export class Modal extends Component {
         return (
             <div className='modal'>
                 <form className="modal__add-form" onSubmit={this.submitHandler}>
-                    <label>Name:</label>
-                    <input placeholder='name' name='name' value={this.state.name} onChange={this.handleChange}></input>
+                    <label className='modal__drink-title'>Name:</label>
+                    <input className='modal__drink-title-field' placeholder='Name' name='name' value={this.state.name} onChange={this.handleChange}></input>
                     <br />
-                    <label>Ingredients:</label>
+                    <label className='modal__ingredient-title'>Ingredients:</label>
                     { this.state.ingredients.map((ingredient, index) => {
                         return(
-                            <div key={index}>
-                                <input placeholder='ingredient' name='ingredient' onChange={(event) => this.handleIng(event, index)}></input>
-                                <input placeholder='amount (1oz = 3cl)' name='amount' type='number' onChange={(event) => this.handleIng(event, index)}></input>
-                                <button onClick={(event) => this.handleRemove(event, index)}>Remove</button>
+                            <div className='modal__ingredient-list' key={index} >
+                                <input className='modal__ingredient-field' placeholder='Ingredient' name='ingredient' onChange={(event) => this.handleIng(event, index)}></input>
+                                <input className='modal__amount-field' placeholder='Amount (in ounces)' name='amount' type='number' onChange={(event) => this.handleIng(event, index)}></input>
+                                <button className='modal__remove-btn' onClick={(event) => this.handleRemove(event, index)}>Remove</button>
                             </div>
                         )
                     })
                     }
-                    <p onClick={this.addNewIngredient}>+</p>
+                    <p className='modal__add-ing-btn' onClick={this.addNewIngredient}>+</p>
                     <br />
-                    <label>Preparation:</label>
-                    <textarea placeholder='preparation' name='preparation' onChange={this.handleChange} value={this.state.preparation}></textarea>
+                    <label className='modal__prep-title'>Preparation:</label>
+                    <textarea className='modal__prep-field' placeholder='Preparation' name='preparation' onChange={this.handleChange} value={this.state.preparation}></textarea>
                     <br />
-                    <label>Garnish:</label>
-                    <input placeholder='garnish' name='garnish' onChange={this.handleChange} value={this.state.garnish}></input>
-                    <button>Submit</button>
+                    <label className='modal__garnish-title'>Garnish:</label>
+                    <input className='modal__garnish-field' placeholder='Garnish' name='garnish' onChange={this.handleChange} value={this.state.garnish}></input>
+                    <button className='modal__submit-btn'>Submit</button>
                 </form>
             </div>
         )
