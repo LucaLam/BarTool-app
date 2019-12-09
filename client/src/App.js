@@ -51,14 +51,14 @@ handleChange = event => {
       <>
     <BrowserRouter>
     <Switch>
-    <Route path="/" exact render={() => <Login 
-      id={this.state.id}
-      user={this.state.user}
-      redirect={this.state.redirect}
-      handleSubmit={this.handleSubmit}
-      handleChange={this.handleChange} />} /> 
-    <Route path='/search' render={() => <Search user={this.state.user} />} />
-    <Route path='/saved' component={SavedPage} />
+      <Route path="/" exact render={() => <Login 
+        id={this.state.id}
+        user={this.state.user}
+        redirect={this.state.redirect}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange} />} /> 
+      <Route path='/search' render={() => <Search user={this.state.user} />} />
+      <Route path='/saved' render={() => <SavedPage />} />
     </Switch>
     </BrowserRouter>
     </>
