@@ -5,6 +5,8 @@ import Logo from './Logo';
 import './savedPage.scss';
 import Remove from './Remove';
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`
+
 export class SavedPage extends Component {
     state={
         saved:[]
@@ -26,7 +28,7 @@ export class SavedPage extends Component {
 
     //retrieves the array of saved drinks from a specific user and saves it to state; we can use that to map through and display the data
     componentDidMount(){
-        axios.get("http://localhost:8080/user").then(response => {
+        axios.get(`${pingURL}/user`).then(response => {
             let saved = response.data.filter(user => user.name === localStorage.getItem('user'));
             saved.map(item => {
                 this.setState({
@@ -39,7 +41,7 @@ export class SavedPage extends Component {
 
     //removes a saved drink from the array of a specific user and updates the state
     deleteSavedDrink = (index) => (event) => {
-        axios.delete(`http://localhost:8080/user/${localStorage.getItem('user')}/savedDrink/${index}`).then(response => {
+        axios.delete(`${pingURL}/user/${localStorage.getItem('user')}/savedDrink/${index}`).then(response => {
             console.log(response)  
             this.setState({
                 saved: response.data.savedDrinks

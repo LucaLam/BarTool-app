@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './form.scss'
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`
+
 export class Form extends Component {
 
     state={
@@ -15,7 +17,7 @@ export class Form extends Component {
     submitHandler = (event) =>{
         const newDrinkSubmission = this.state
         // event.preventDefault();
-        axios.post('http://localhost:8080/recipes', newDrinkSubmission)
+        axios.post(`${pingURL}/recipes`, newDrinkSubmission)
         .then(response => {
             console.log(response);
         })
@@ -89,7 +91,7 @@ export class Form extends Component {
         return (
             <div className='modal'>
                 <h2 className='modal__add-form-title'>Add a new cocktail:</h2>
-                <form className="modal__add-form" onSubmit={this.submitHandler}>
+                <form className="modal__add-form" onSubmit={this.submitHandler} autoComplete='off'>
                     <label className='modal__drink-title'>Name:</label>
                     <input className='modal__drink-title-field' placeholder='Name' name='name' value={this.state.name} onChange={this.handleChange}></input>
                     <br />

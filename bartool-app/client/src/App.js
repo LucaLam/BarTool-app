@@ -7,6 +7,8 @@ import Search from './components/Search';
 import SavedPage from './components/SavedPage';
 import Login from "./components/Login"
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`
+
 export class App extends Component {
   state = {
     id: "",
@@ -20,7 +22,7 @@ handleSubmit = event => {
   if (!this.state.id || isNaN(this.state.id)) {
   return alert("ID Required!");
   } else {
-  axios.get("http://localhost:8080/user").then(response => {
+  axios.get(`${pingURL}/user`).then(response => {
       //look thru data, compare existing IDs to entered ID and 'grant entry' or return an alert
       let user = response.data.find(user => user.id === this.state.id)
           if(!user){

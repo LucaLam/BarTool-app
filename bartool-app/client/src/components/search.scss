@@ -76,7 +76,6 @@
 .search__form:hover>.search__form-btn {
     background: #EB225A;
     opacity: 0.9;
-
 }
 .input:focus{
 background: rgba(0,0,0,.1);
@@ -104,13 +103,11 @@ outline: none;
         height: 20px;
     }
 
-
 .pop-up{
     border-radius: 8px;
     &__message{
         padding: 50px;
         font-family: 'Roboto', sans-serif;
         color: #333032;
-
     }
 }

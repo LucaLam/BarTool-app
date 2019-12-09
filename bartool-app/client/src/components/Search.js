@@ -9,6 +9,8 @@ import addIcon from '../assets/add.svg';
 import Form from "./Form";
 import Modal from 'react-responsive-modal';
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`
+
 export class Search extends Component {
 state = {
     drink: "",
@@ -37,7 +39,7 @@ handleSubmit = event => {
     if (!this.state.drink) {
     this.onOpenModal();
     } else {
-    axios.get("http://localhost:8080/recipes").then(response => {
+    axios.get(`${pingURL}/recipes`).then(response => {
         //toLowerCase allows the search bar to NOT be case sensitive
         let drink = response.data.find(drink => drink.name.toLowerCase() === this.state.drink.toLowerCase())
         if(!drink){

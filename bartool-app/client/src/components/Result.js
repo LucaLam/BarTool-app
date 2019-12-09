@@ -3,6 +3,8 @@ import StatRating from './StarRating'
 import './result.scss'
 import axios from 'axios';
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`
+
 export class Result extends Component {
 
     //converts cl (integer) to ounces
@@ -30,7 +32,7 @@ export class Result extends Component {
     garnish: this.props.recipe.garnish,
         }
         //using local storage to access the user first, then the needed array of saved drinks
-        axios.post(`http://localhost:8080/user/${localStorage.getItem('user')}/savedDrink`, newSavedDrinks)
+        axios.post(`${pingURL}/user/${localStorage.getItem('user')}/savedDrink`, newSavedDrinks)
         .then(response => {
         console.log(response);
         })
