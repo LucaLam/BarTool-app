@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./login.scss";
 import { Redirect } from "react-router-dom";
 import Logo from "./Logo"
+import arrow from '../assets/right-arrow-of-straight-thin-line.svg';
 
 export class Login extends Component {
 
@@ -24,7 +25,7 @@ render() {
             className="login__form-field"
         ></input>
         <button type="submit" className="login__form-btn">
-            Sign In
+            <img className='arrow' src={arrow} alt=''/> 
         </button>
         </form>
         <Logo />

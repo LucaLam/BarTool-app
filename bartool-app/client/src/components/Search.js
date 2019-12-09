@@ -86,7 +86,7 @@ render() {
         <Header />
         <h2 className='search__welcome-title'>Welcome, {localStorage.getItem('user', this.props.user)}</h2>
         <div className='search__test'>
-        <form onSubmit={this.handleSubmit} className='search__form'>
+        <form onSubmit={this.handleSubmit} className='search__form' autoComplete="off">
         <input
             placeholder="Search"
             name="drinkName"

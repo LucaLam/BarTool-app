@@ -32,20 +32,25 @@
     }
 
     &__form-btn{
-        width: 150px;
-        height: 40px;
-        border-radius: 15px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
         border:#E1E4E6 solid 1px;
-        background: #EB2457;
+        background: whitesmoke;
         outline: none;
         color: #333032;
         font-weight: bolder;
         font-size: 20px;
         font-family: 'Roboto', sans-serif;
-
     }
 
     &__form-btn:focus{
+        opacity: 0.5;
         background:pink;
     }
+}
+
+.arrow{
+    padding-top: 3px;
+    width: 50%;
 }
